@@ -30,6 +30,7 @@ public class AdminSignIn {
         else{
             System.out.println("The information is incorrect!! Try again(Insert 1) or leave (Insert 2)");
             int answer = scanner.nextInt();
+            scanner.nextLine();
             switch (answer){
                 case 1:
                     RequestSignIn();

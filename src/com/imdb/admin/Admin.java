@@ -34,55 +34,87 @@ public class Admin {
     }
 
     private void addContent() {
+
+        System.out.print("Title of the film: ");
         String title = scanner.nextLine();
-        String description = scanner.nextLine();
+
+        System.out.print("Premiere of the film(yyyy-mm-dd format): ");
         LocalDate premiereDate = LocalDate.parse(scanner.nextLine());
-        ArrayList<Genre> genres = new ArrayList<>();
+
 
         System.out.print("Number of genres: ");
+        ArrayList<Genre> genres = new ArrayList<>();
         int genreNumber = scanner.nextInt();
+        scanner.nextLine();
+
+
+        for (Genre print: Genre.values()) {
+            System.out.print(print + " ");
+        }
+        System.out.println();
+
+
         for (int i = 0; i < genreNumber; i++) {
-            genres.add(Genre.valueOf(scanner.nextLine()));
+            System.out.print("Genre Type: ");
+            String add = scanner.nextLine();
+            add = add.toUpperCase();
+            genres.add(Genre.valueOf(add));
         }
 
-        ArrayList<Person> people = new ArrayList<>();
+        System.out.print("Description of the film: ");
+        String description = scanner.nextLine();
 
         System.out.print("Number of people worked for the film: ");
+        ArrayList<Person> people = new ArrayList<>();
         int staffNumber = scanner.nextInt();
+        scanner.nextLine();
+
         for (int i = 0; i < staffNumber; i++) {
             addPerson();
         }
 
-        Movie newMovie = new Movie(title, description, premiereDate, genres, people);
 
+        Movie newMovie = new Movie(title, description, premiereDate, genres, people);
         MovieStorage.MOVIES.put(title, newMovie);
     }
 
     private Person addPerson() {
 
-        System.out.println("Full name: ");
+        System.out.print("Full name: ");
         String fullName = scanner.nextLine();
 
-        System.out.println("BirthDate name: ");
+        System.out.print("BirthDate name (yyyy-mm-dd format): ");
         LocalDate birthDate = LocalDate.parse(scanner.nextLine());
 
-        System.out.println("Biography: ");
+        System.out.print("Biography: ");
         String bio = scanner.nextLine();
 
-        System.out.println("Number of  roles: ");
+        System.out.print("Number of  roles: ");
         ArrayList<FilmMakingRole> role = new ArrayList<>();
 
         int roleNumber = scanner.nextInt();
+        scanner.nextLine();
+
+        for (FilmMakingRole print: FilmMakingRole.values()) {
+            System.out.print(print + " ");
+        }
+        System.out.println();
+
         for (int i = 0; i < roleNumber; i++) {
-            role.add(FilmMakingRole.valueOf(scanner.nextLine()));
+            System.out.print("Role Type: ");
+            String add = scanner.nextLine();
+            add = add.toUpperCase();
+            role.add(FilmMakingRole.valueOf(add));
         }
 
         System.out.println("Number of  films participated: ");
         ArrayList<String> movies = new ArrayList<>();
 
         int filmNumber = scanner.nextInt();
-        for (int i = 0; i < filmNumber; i++) {
+        scanner.nextLine();
 
+        for (int i = 0; i < filmNumber; i++) {
+            System.out.println("Film name: ");
             String film = scanner.nextLine();
 
             for (String s : MovieStorage.MOVIES.keySet()) {

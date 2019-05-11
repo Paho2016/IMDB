@@ -8,7 +8,7 @@ public enum Genre {
     FANTASY,
     HISTORICAL,
     CRIME,
-    COMDEY,
+    COMEDY,
     DOCUMENTARY,
     DRAMA,
     THRILLER,

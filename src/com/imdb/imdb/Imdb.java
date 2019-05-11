@@ -35,18 +35,23 @@ public class Imdb {
             String movie  = scanner.nextLine();
             user.rateMovie(MovieStorage.MOVIES.get(movie));
         }
+        System.out.println("Do you want to do another action (yes / sth else");
+        String answer = scanner.nextLine();
+        if(answer.toLowerCase().equals("yes")){
+            startMessageforUser();
+        }else{return;}
     }
 
     void startMessageforAdmin(){
-        System.out.println("WHat do you want to do? \n SEARCH a movie \n ADD a content ");
+        System.out.println("What do you want to do? \n SEARCH a movie \n ADD a content ");
         String commandReader = scanner.nextLine();
 
-        if (commandReader.toUpperCase().equals(command.SEARCH)) {
+        if (command.valueOf(commandReader.toUpperCase()).equals(command.SEARCH)) {
             System.out.print("Type the title of the film: ");
-            Movie searchedMovie =  user.searchMovie(scanner.nextLine());
+            Movie searchedMovie =  admin.searchMovie(scanner.nextLine());
             searchedMovie.toString();
         }
-        else if(commandReader.toUpperCase().equals(command.ADD)){
+        else if(command.valueOf(commandReader.toUpperCase()).equals(command.ADD)){
 
             this.admin.addNewContent();
             System.out.println("Do you want to add another Content? (yes / sth else");
@@ -56,5 +61,10 @@ public class Imdb {
             }
             else { return; }
         }
+        System.out.println("Do you want to do another action (yes / sth else");
+        String answer = scanner.nextLine();
+        if(answer.toLowerCase().equals("yes")){
+            startMessageforAdmin();
+        }else{return;}
     }
 }
