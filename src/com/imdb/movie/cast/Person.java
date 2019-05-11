@@ -1,4 +1,4 @@
-package com.imdb.cast;
+package com.imdb.movie.cast;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

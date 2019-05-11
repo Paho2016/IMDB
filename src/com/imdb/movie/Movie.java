@@ -3,7 +3,7 @@ package com.imdb.movie;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import com.imdb.cast.Person;
+import com.imdb.movie.cast.Person;
 
 public  class Movie {
 

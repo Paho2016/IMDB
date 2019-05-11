@@ -27,7 +27,7 @@ public class Imdb {
         String commandReader = scanner.nextLine();
         if (commandReader.toUpperCase().equals(command.SEARCH)) {
             System.out.print("Type the title of the film: ");
-            Movie searchedMovie =  user.searchMovie(scanner.nextLine());
+            Movie searchedMovie =  searchMovie(scanner.nextLine());
             searchedMovie.toString();
         }
         else if(commandReader.toUpperCase().equals(command.RATE)){
@@ -48,7 +48,7 @@ public class Imdb {
 
         if (command.valueOf(commandReader.toUpperCase()).equals(command.SEARCH)) {
             System.out.print("Type the title of the film: ");
-            Movie searchedMovie =  admin.searchMovie(scanner.nextLine());
+            Movie searchedMovie =  searchMovie(scanner.nextLine());
             searchedMovie.toString();
         }
         else if(command.valueOf(commandReader.toUpperCase()).equals(command.ADD)){
@@ -66,5 +66,17 @@ public class Imdb {
         if(answer.toLowerCase().equals("yes")){
             startMessageforAdmin();
         }else{return;}
+    }
+
+    public Movie searchMovie(String title) {
+        for (int i = 0; i < MovieStorage.MOVIES.size(); i++) {
+
+            try {
+                MovieStorage.MOVIES.get(title);
+            } catch (Exception IllegalArgumentException) {
+                throw new IllegalArgumentException("NO RESULT!");
+            }
+        }
+        return MovieStorage.MOVIES.get(title);
     }
 }

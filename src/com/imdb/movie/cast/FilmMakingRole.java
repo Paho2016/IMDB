@@ -1,4 +1,4 @@
-package com.imdb.cast;
+package com.imdb.movie.cast;
 
 public enum FilmMakingRole {
 

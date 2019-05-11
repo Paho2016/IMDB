@@ -31,15 +31,4 @@ public  class User {
         movie.rateMovie(scanner.nextInt());
     }
 
-    public Movie searchMovie(String title) {
-        for (int i = 0; i < MovieStorage.MOVIES.size(); i++) {
-
-            try {
-                MovieStorage.MOVIES.get(title);
-            } catch (Exception IllegalArgumentException) {
-                throw new IllegalArgumentException("NO RESULT!");
-            }
-        }
-        return MovieStorage.MOVIES.get(title);
-    }
 }
